@@ -4,6 +4,10 @@ AllCops:
     - Rakefile
     - config.ru
     - lib/**/*.rake
+    - app/controllers/**
+    - app/models/**
+    - app/controllers/**
+    - app/helpers/**
   Exclude:
     - db/**
     - config/**

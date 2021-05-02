@@ -1,9 +1,11 @@
+# frozen_string_literal: true
+
+# Books controller
 class BooksController < ApplicationController
+  before_action :set_book, only: [:edit, :update]
+
   def index
     @books = Book.all
-  end
-
-  def show
   end
 
   def new
@@ -15,26 +17,39 @@ class BooksController < ApplicationController
 
     respond_to do |format|
       if @book.save
-        format.html  { redirect_to(books_path,
-                      :notice => 'Book was successfully created.') }
-        format.json  { render :json => @book,
-                      :status => :created, :location => @book }
+        format.html do
+          redirect_to(books_path, notice: 'Book was successfully created.')
+        end
       else
-        format.html  { render :action => "new" }
-        format.json  { render :json => @book.errors,
-                      :status => :unprocessable_entity }
+        format.html { render action: "new" }
       end
     end
-
   end
 
-  def edit
-    @book = Book.find(params[:id])
+  def edit; end
+
+  def update
+    @book.assign_attributes(book_params)
+
+    respond_to do |format|
+      if @book.save
+        format.html do
+          redirect_to(books_path,
+                      notice: 'Book was successfully created.')
+        end
+      else
+        format.html { render action: "edit" }
+      end
+    end
   end
 
   private
 
   def book_params
-    params.require(:book).permit(%i[title author genre])
+    params.require(:book).permit([:title, :author, :genre])
+  end
+
+  def set_book
+    @book = Book.find(params[:id])
   end
 end
