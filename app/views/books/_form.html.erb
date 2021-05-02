@@ -1,0 +1,12 @@
+<%= form_with(model: book, local: true) do |book_form| %>
+    <%= book_form.label :title, 'Title' %>
+    <%= book_form.text_field :title %>
+
+    <%= book_form.label :author, 'Author' %>
+    <%= book_form.text_field :author %>
+
+    <%= book_form.label :genre, 'Genre' %>
+    <%= book_form.text_field :genre %>
+    
+    <%= book_form.submit "Save" %>
+<% end %>
