@@ -12,9 +12,10 @@ class BooksController < ApplicationController
   def create
     @book = Book.new(book_params)
 
+
     respond_to do |format|
       if @book.save
-        format.html  { redirect_to(@book,
+        format.html  { redirect_to(books_path,
                       :notice => 'Book was successfully created.') }
         format.json  { render :json => @book,
                       :status => :created, :location => @book }
