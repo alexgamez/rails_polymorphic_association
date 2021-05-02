@@ -1,8 +1,12 @@
+# frozen_string_literal: true
+
+# Magazines controller
 class MagazinesController < ApplicationController
+  include NotesHelper
   before_action :set_magazine, only: [:edit, :update, :destroy]
 
   def index
-    @magazines =Magazine.all
+    @magazines = Magazine.all
   end
 
   def new
@@ -23,9 +27,7 @@ class MagazinesController < ApplicationController
     end
   end
 
-  def edit
-   
-  end
+  def edit; end
 
   def update
     @magazine.assign_attributes(magazine_params)
@@ -36,7 +38,7 @@ class MagazinesController < ApplicationController
           redirect_to(magazines_path, notice: 'Magazine was successfully updated.')
         end
       else
-        format.html { render action: "edit"}
+        format.html { render action: "edit" }
       end
     end
   end
@@ -54,7 +56,7 @@ class MagazinesController < ApplicationController
   private
 
   def magazine_params
-    params.require(:magazine).permit(:title, :target_audiences, :description)
+    params.require(:magazine).permit(:title, :target_audiences, :description, notes_attributes)
   end
 
   def set_magazine
