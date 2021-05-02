@@ -1,4 +1,5 @@
 class MagazinesController < ApplicationController
+  include NotesHelper
   before_action :set_magazine, only: [:edit, :update, :destroy]
 
   def index
@@ -54,7 +55,7 @@ class MagazinesController < ApplicationController
   private
 
   def magazine_params
-    params.require(:magazine).permit(:title, :target_audiences, :description)
+    params.require(:magazine).permit(:title, :target_audiences, :description, notes_attributes)
   end
 
   def set_magazine

@@ -6,4 +6,8 @@ class Magazine < ApplicationRecord
     validates :description, presence: true
 
     has_many :notes, as: :noteable, dependent: :destroy
+
+    accepts_nested_attributes_for :notes, reject_if: proc { |attrs|
+        attrs['content'].blank?
+    }
 end
