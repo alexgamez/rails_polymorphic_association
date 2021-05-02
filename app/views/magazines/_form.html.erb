@@ -1,0 +1,13 @@
+<%= form_with(model: Magazine, local: true) do |magazine_form| %>
+
+    <%= magazine_form.label :title, 'Title' %>
+    <%= magazine_form.text_field :title %>
+
+    <%= magazine_form.label :author, 'Target audiences' %>
+    <%= magazine_form.text_field :target_audiences %>
+
+    <%= magazine_form.label :genre, 'Description' %>
+    <%= magazine_form.text_area :description %>
+    
+    <%= magazine_form.submit "Save" %>
+<% end %>
