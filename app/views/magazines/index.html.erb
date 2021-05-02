@@ -32,6 +32,7 @@
         <th>Target audiences</th>
         <th>Description</th>
         <th></th>
+        <th></th>
     </tr>
  
     <% @magazines.each do |magazine| %>
@@ -40,6 +41,10 @@
             <td><%= magazine.target_audiences %></td>
             <td><%= magazine.description %></td>
             <td><%= link_to 'View', edit_magazine_path(magazine) %></td>
+            <td><%= link_to 'Destroy', magazine, method: :delete,
+                                        data: { confirm: 'Are you crazy ?' } %>
+            </td>
+
         </tr>
     <% end %>
 </table>

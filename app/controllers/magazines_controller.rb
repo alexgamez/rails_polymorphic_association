@@ -1,6 +1,6 @@
 class MagazinesController < ApplicationController
-  before_action :set_magazine, only: [:edit, :update]
-  
+  before_action :set_magazine, only: [:edit, :update, :destroy]
+
   def index
     @magazines =Magazine.all
   end
@@ -37,6 +37,16 @@ class MagazinesController < ApplicationController
         end
       else
         format.html { render action: "edit"}
+      end
+    end
+  end
+
+  def destroy
+    @magazine.destroy
+
+    respond_to do |format|
+      format.html do
+        redirect_to(magazines_path, notice: 'Magazine was successfully destroyed.')
       end
     end
   end
