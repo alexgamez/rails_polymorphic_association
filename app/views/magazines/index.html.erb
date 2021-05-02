@@ -31,6 +31,7 @@
         <th>Title</th>
         <th>Target audiences</th>
         <th>Description</th>
+        <th></th>
     </tr>
  
     <% @magazines.each do |magazine| %>
@@ -38,6 +39,7 @@
             <td><%= magazine.title %></td>
             <td><%= magazine.target_audiences %></td>
             <td><%= magazine.description %></td>
+            <td><%= link_to 'View', edit_magazine_path(magazine) %></td>
         </tr>
     <% end %>
 </table>
