@@ -1,5 +1,6 @@
 class MagazinesController < ApplicationController
   def index
+    @magazines =Magazine.all
   end
 
   def new

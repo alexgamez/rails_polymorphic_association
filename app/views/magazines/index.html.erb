@@ -1,2 +1,45 @@
-<h1>Magazines#index</h1>
-<p>Find me in app/views/magazines/index.html.erb</p>
+<h1>Magazines</h1>
+
+<% if flash.present? %>
+    <div class="container">
+        <div class="row my-2">
+            <div class="col">
+                <% if flash[:notice].present? %>
+                    <div class="mb-0 alert alert-success" role="alert">
+                        <%= flash[:notice] %>
+                    </div>
+                <% end %>
+
+                <% if flash[:error].present? %>
+                    <div class="mb-0 alert alert-danger" role="alert">
+                        <%= flash[:error] %>
+                    </div>
+                <% end %>
+
+                <% if flash[:alert].present? %>
+                    <div class="mb-0 alert alert-danger" role="alert">
+                        <%= flash[:alert] %>
+                    </div>
+                <% end %>
+            </div>
+        </div>
+    </div>
+<% end %>
+ 
+<table>
+    <tr>
+        <th>Title</th>
+        <th>Target audiences</th>
+        <th>Description</th>
+    </tr>
+ 
+    <% @magazines.each do |magazine| %>
+        <tr>
+            <td><%= magazine.title %></td>
+            <td><%= magazine.target_audiences %></td>
+            <td><%= magazine.description %></td>
+        </tr>
+    <% end %>
+</table>
+<br />
+<%= link_to 'Add a magazine', new_magazine_path %>
