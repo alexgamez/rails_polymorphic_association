@@ -21,6 +21,9 @@
 
     <%= magazine_form.label :genre, 'Description' %>
     <%= magazine_form.text_area :description %>
+
+    <hr>
+    <%= render partial: 'shared/notes', locals: { parent_form: magazine_form, parent_record: magazine } %>
     
     <%= magazine_form.submit "Save" %>
 <% end %>

@@ -4,4 +4,10 @@ class Book < ApplicationRecord
   validates :title, presence: true
   validates :author, presence: true
   validates :genre, presence: true
+
+  has_many :notes, as: :noteable, dependent: :destroy
+
+  accepts_nested_attributes_for :notes, reject_if: proc { |attrs|
+    attrs['content'].blank?
+  }
 end

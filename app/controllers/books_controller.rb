@@ -2,6 +2,7 @@
 
 # Books controller
 class BooksController < ApplicationController
+  include NotesHelper
   before_action :set_book, only: [:edit, :update, :destroy]
 
   def index
@@ -56,7 +57,7 @@ class BooksController < ApplicationController
   private
 
   def book_params
-    params.require(:book).permit([:title, :author, :genre])
+    params.require(:book).permit([:title, :author, :genre, notes_attributes])
   end
 
   def set_book

@@ -21,6 +21,9 @@
 
     <%= book_form.label :genre, 'Genre' %>
     <%= book_form.text_field :genre %>
+
+    <hr>
+    <%= render partial: 'shared/notes', locals: { parent_form: book_form, parent_record: book } %>
     
     <%= book_form.submit "Save" %>
 <% end %>

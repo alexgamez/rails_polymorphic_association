@@ -4,4 +4,6 @@ class Magazine < ApplicationRecord
     validates :title, presence: true
     validates :target_audiences, presence: true
     validates :description, presence: true
+
+    has_many :notes, as: :noteable, dependent: :destroy
 end
