@@ -14,6 +14,8 @@ class MagazinesController < ApplicationController
         format.html do
           redirect_to(magazines_path, notice: 'Magazine was successfully created.')
         end
+      else
+        format.html { render action: "new" }
       end
     end
   end

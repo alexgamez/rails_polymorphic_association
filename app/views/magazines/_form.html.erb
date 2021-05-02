@@ -1,5 +1,18 @@
 <%= form_with(model: Magazine, local: true) do |magazine_form| %>
 
+    <% if magazine.errors.any? %>
+        <div>
+            <h2><%= pluralize(magazine.errors.count, "error") %>
+                Your magazine is not saved, please check the errors:
+            </h2>
+            <ul>
+                <% magazine.errors.full_messages.each do |msg| %>
+                    <li><%= msg %></li>
+                <% end %>
+            </ul>
+        </div>
+    <% end %>
+
     <%= magazine_form.label :title, 'Title' %>
     <%= magazine_form.text_field :title %>
 
