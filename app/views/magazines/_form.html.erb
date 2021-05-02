@@ -1,0 +1,26 @@
+<%= form_with(model: magazine, local: true) do |magazine_form| %>
+
+    <% if magazine.errors.any? %>
+        <div>
+            <h2><%= pluralize(magazine.errors.count, "error") %>
+                Your magazine is not saved, please check the errors:
+            </h2>
+            <ul>
+                <% magazine.errors.full_messages.each do |msg| %>
+                    <li><%= msg %></li>
+                <% end %>
+            </ul>
+        </div>
+    <% end %>
+
+    <%= magazine_form.label :title, 'Title' %>
+    <%= magazine_form.text_field :title %>
+
+    <%= magazine_form.label :author, 'Target audiences' %>
+    <%= magazine_form.text_field :target_audiences %>
+
+    <%= magazine_form.label :genre, 'Description' %>
+    <%= magazine_form.text_area :description %>
+    
+    <%= magazine_form.submit "Save" %>
+<% end %>

@@ -1,0 +1,28 @@
+<h1>Magazines</h1>
+
+<%= render partial: 'shared/flash_alerts' %>
+ 
+<table>
+    <tr>
+        <th>Title</th>
+        <th>Target audiences</th>
+        <th>Description</th>
+        <th></th>
+        <th></th>
+    </tr>
+ 
+    <% @magazines.each do |magazine| %>
+        <tr>
+            <td><%= magazine.title %></td>
+            <td><%= magazine.target_audiences %></td>
+            <td><%= magazine.description %></td>
+            <td><%= link_to 'View', edit_magazine_path(magazine) %></td>
+            <td><%= link_to 'Destroy', magazine, method: :delete,
+                                        data: { confirm: 'Are you crazy ?' } %>
+            </td>
+
+        </tr>
+    <% end %>
+</table>
+<br />
+<%= link_to 'Add a magazine', new_magazine_path %>

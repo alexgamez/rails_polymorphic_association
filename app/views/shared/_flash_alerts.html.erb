@@ -1,0 +1,25 @@
+<% if flash.present? %>
+    <div class="container">
+        <div class="row my-2">
+            <div class="col">
+                <% if flash[:notice].present? %>
+                    <div class="mb-0 alert alert-success" role="alert">
+                        <%= flash[:notice] %>
+                    </div>
+                <% end %>
+
+                <% if flash[:error].present? %>
+                    <div class="mb-0 alert alert-danger" role="alert">
+                        <%= flash[:error] %>
+                    </div>
+                <% end %>
+
+                <% if flash[:alert].present? %>
+                    <div class="mb-0 alert alert-danger" role="alert">
+                        <%= flash[:alert] %>
+                    </div>
+                <% end %>
+            </div>
+        </div>
+    </div>
+<% end %>
