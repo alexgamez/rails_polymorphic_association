@@ -41,8 +41,9 @@
             <td><%= book.author %></td>
             <td><%= book.genre %></td>
             <td><%= link_to 'View', edit_book_path(book) %></td>
-            <td><%= link_to 'Destroy', book, :confirm => 'Are you crazy?',
-                                     :method => :delete %></td>
+            <td><%= link_to 'Destroy', book, method: :delete,
+                                        data: { confirm: 'Are you crazy ?' } %>
+            </td>
         </tr>
     <% end %>
 </table>
