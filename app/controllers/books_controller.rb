@@ -2,7 +2,7 @@
 
 # Books controller
 class BooksController < ApplicationController
-  before_action :set_book, only: [:edit, :update]
+  before_action :set_book, only: [:edit, :update, :destroy]
 
   def index
     @books = Book.all
@@ -35,10 +35,20 @@ class BooksController < ApplicationController
       if @book.save
         format.html do
           redirect_to(books_path,
-                      notice: 'Book was successfully created.')
+                      notice: 'Book was successfully updated.')
         end
       else
         format.html { render action: "edit" }
+      end
+    end
+  end
+
+  def destroy
+    @book.destroy
+
+    respond_to do |format|
+      format.html do 
+        redirect_to(books_path, notice: 'Book was successfully destroyed.')
       end
     end
   end

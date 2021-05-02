@@ -1,10 +1,37 @@
 <h1>Books</h1>
+
+<% if flash.present? %>
+    <div class="container">
+        <div class="row my-2">
+            <div class="col">
+                <% if flash[:notice].present? %>
+                    <div class="mb-0 alert alert-success" role="alert">
+                        <%= flash[:notice] %>
+                    </div>
+                <% end %>
+
+                <% if flash[:error].present? %>
+                    <div class="mb-0 alert alert-danger" role="alert">
+                        <%= flash[:error] %>
+                    </div>
+                <% end %>
+
+                <% if flash[:alert].present? %>
+                    <div class="mb-0 alert alert-danger" role="alert">
+                        <%= flash[:alert] %>
+                    </div>
+                <% end %>
+            </div>
+        </div>
+    </div>
+<% end %>
  
 <table>
     <tr>
         <th>Title</th>
         <th>Author</th>
         <th>Genre</th>
+        <th></th>
         <th></th>
     </tr>
  
@@ -14,6 +41,8 @@
             <td><%= book.author %></td>
             <td><%= book.genre %></td>
             <td><%= link_to 'View', edit_book_path(book) %></td>
+            <td><%= link_to 'Destroy', book, :confirm => 'Are you crazy?',
+                                     :method => :delete %></td>
         </tr>
     <% end %>
 </table>
