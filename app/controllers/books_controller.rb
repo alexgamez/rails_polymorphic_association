@@ -47,7 +47,7 @@ class BooksController < ApplicationController
     @book.destroy
 
     respond_to do |format|
-      format.html do 
+      format.html do
         redirect_to(books_path, notice: 'Book was successfully destroyed.')
       end
     end
