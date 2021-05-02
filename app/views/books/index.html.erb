@@ -5,6 +5,7 @@
         <th>Title</th>
         <th>Author</th>
         <th>Genre</th>
+        <th></th>
     </tr>
  
     <% @books.each do |book| %>
@@ -12,6 +13,7 @@
             <td><%= book.title %></td>
             <td><%= book.author %></td>
             <td><%= book.genre %></td>
+            <td><%= link_to 'View', edit_book_path(book) %></td>
         </tr>
     <% end %>
 </table>
