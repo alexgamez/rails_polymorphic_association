@@ -15,7 +15,7 @@
       <tbody>
         <% @notes.each_with_index do |note, index| %>
           <tr>
-            <td><%= index %></td>
+            <td><%= index + 1 %></td>
             <td><%= note.content.truncate(35)%></td>
             <td><%= note.noteable_type %></td>
             </td>
