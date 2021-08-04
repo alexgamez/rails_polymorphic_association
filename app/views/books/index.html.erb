@@ -1,4 +1,4 @@
-<div class="container mt-3">
+<div class="container mt-3 mb-5">
   <h2>Books</h2>
 
   <%= render partial: 'shared/flash_alerts' %>
@@ -7,6 +7,7 @@
     <table class="table align-middle">
       <thead>
         <tr>
+          <th>#</th>
           <th>Title</th>
           <th>Author</th>
           <th>Genre</th>
@@ -15,8 +16,9 @@
         </tr>
       </thead>
       <tbody>
-        <% @books.each do |book| %>
+        <% @books.each_with_index do |book, index| %>
           <tr>
+            <td><%= index %></td>
             <td><%= book.title %></td>
             <td><%= book.author %></td>
             <td><%= book.genre %></td>
@@ -30,6 +32,7 @@
       </tbody>
     </table>
   </div>
+  <%= will_paginate @books %>
   <br />
   <%= link_to 'Add a book', new_book_path, class:'btn btn-primary' %>
 </div>

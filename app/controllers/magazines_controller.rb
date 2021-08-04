@@ -6,7 +6,7 @@ class MagazinesController < ApplicationController
   before_action :set_magazine, only: [:edit, :update, :destroy]
 
   def index
-    @magazines = Magazine.all
+    @magazines = Magazine.paginate(page: params[:page], per_page: 25)
   end
 
   def new

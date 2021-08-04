@@ -3,6 +3,6 @@
 # Books controller
 class NotesController < ApplicationController
   def index
-    @notes = Note.all
+    @notes = Note.all.paginate(page: params[:page], per_page: 25)
   end
 end
