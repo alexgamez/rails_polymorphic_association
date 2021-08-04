@@ -1,5 +1,7 @@
-<h1>
-    <%= @magazine.title %>
-</h1>
+<div class="container mt-3">
+  <h2>
+      <%= @magazine.title %>
+  </h2>
 
-<%= render partial: 'form', locals: { magazine: @magazine } %>
+  <%= render partial: 'form', locals: { magazine: @magazine } %>
+</div>

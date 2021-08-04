@@ -1,7 +1,7 @@
 <%= form_with(model: magazine, local: true) do |magazine_form| %>
-
+  <form>
     <% if magazine.errors.any? %>
-        <div>
+        <div class="error-message">
             <h2><%= pluralize(magazine.errors.count, "error") %>
                 Your magazine is not saved, please check the errors:
             </h2>
@@ -13,17 +13,21 @@
         </div>
     <% end %>
 
-    <%= magazine_form.label :title, 'Title' %>
-    <%= magazine_form.text_field :title %>
+    <div class="mb-3">
+      <%= magazine_form.label :title, 'Title', class: 'form-label' %>
+      <%= magazine_form.text_field :title, class: 'form-control' %>
+    </div>
+    <div class="mb-3">
+      <%= magazine_form.label :author, 'Target audiences', class: 'form-label' %>
+      <%= magazine_form.text_field :target_audiences, class: 'form-control' %>
+    </div>
+    <div class="mb-3">
+      <%= magazine_form.label :genre, 'Description', class: 'form-label' %>
+      <%= magazine_form.text_area :description, class: 'form-control' %>
+    </div>
 
-    <%= magazine_form.label :author, 'Target audiences' %>
-    <%= magazine_form.text_field :target_audiences %>
-
-    <%= magazine_form.label :genre, 'Description' %>
-    <%= magazine_form.text_area :description %>
-
-    <hr>
     <%= render partial: 'shared/notes', locals: { parent_form: magazine_form, parent_record: magazine } %>
-    
-    <%= magazine_form.submit "Save" %>
+
+    <%= magazine_form.submit "Save", class: 'btn btn-primary' %>
+  </form>
 <% end %>
