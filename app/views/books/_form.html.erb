@@ -1,10 +1,11 @@
-<%= form_with(model: book, local: true) do |book_form| %>
 
+<%= form_with(model: book, local: true) do |book_form| %>
+  <form>
     <% if book.errors.any? %>
-        <div>
-            <h2><%= pluralize(book.errors.count, "error") %>
+        <div class="error-message">
+            <h3><%= pluralize(book.errors.count, "error") %>
                 Your book is not saved, please check the errors:
-            </h2>
+            </h3>
             <ul>
                 <% book.errors.full_messages.each do |msg| %>
                     <li><%= msg %></li>
@@ -13,17 +14,21 @@
         </div>
     <% end %>
 
-    <%= book_form.label :title, 'Title' %>
-    <%= book_form.text_field :title %>
+    <div class="mb-3">
+      <%= book_form.label :title, 'Title', class: 'form-label' %>
+      <%= book_form.text_field :title, class: 'form-control' %>
+    </div>
+    <div class="mb-3">
+      <%= book_form.label :author, 'Author', class: 'form-label' %>
+      <%= book_form.text_field :author, class: 'form-control' %>
+    </div>
+    <div class="mb-3">
+      <%= book_form.label :genre, 'Genre', class: 'form-label' %>
+      <%= book_form.text_field :genre, class: 'form-control' %>
+    </div>
 
-    <%= book_form.label :author, 'Author' %>
-    <%= book_form.text_field :author %>
-
-    <%= book_form.label :genre, 'Genre' %>
-    <%= book_form.text_field :genre %>
-
-    <hr>
     <%= render partial: 'shared/notes', locals: { parent_form: book_form, parent_record: book } %>
-    
-    <%= book_form.submit "Save" %>
+
+    <%= book_form.submit "Save", class: 'btn btn-primary' %>
+  </form>
 <% end %>

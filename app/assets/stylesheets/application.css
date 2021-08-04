@@ -13,6 +13,14 @@
  *= require_tree .
  *= require_self
  */
- .btn-primary{
+.btn-primary{
   background-color: #1552adbf !important;
+}
+
+.field_with_errors input{
+  border: 1px solid #ff0033;
+}
+
+.error-message{
+  color: #ff0033;
 }
