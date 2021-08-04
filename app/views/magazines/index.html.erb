@@ -16,7 +16,7 @@
   
       <% @magazines.each_with_index do |magazine, index| %>
           <tr>
-              <td><%= index %></td>
+              <td><%= index + 1 %></td>
               <td><%= magazine.title %></td>
               <td><%= magazine.target_audiences %></td>
               <td><%= magazine.description %></td>
