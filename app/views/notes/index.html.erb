@@ -1,0 +1,29 @@
+<div class="container mt-3 mb-5">
+  <h2>Notes</h2>
+  
+  <div class="table-responsive">
+    <table class="table align-middle">
+      <thead>
+        <tr>
+          <th>#</th>
+          <th>Content</th>
+          <th>Type</th>
+          <th></th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @notes.each_with_index do |note, index| %>
+          <tr>
+            <td><%= index %></td>
+            <td><%= note.content.truncate(35)%></td>
+            <td><%= note.noteable_type %></td>
+            </td>
+          </tr>
+          <% end %>
+        <tr>
+      </tbody>
+    </table>
+    <%= will_paginate @notes %>
+  </div>
+</div>

@@ -1,0 +1,24 @@
+.navbar-light{
+  background-color: #333;
+}
+
+.navbar-nav a{
+  color: #f7f7f7 !important;
+}
+
+.navbar-nav a:hover{
+  color: #e95420 !important;
+}
+
+.navbar-brand{
+  color: #f7f7f7 !important;
+}
+
+  a.navbar-brand:hover{
+  color: #e95420 !important;
+}
+
+.navbar-toggler{
+  color: #e95420 !important;
+  border-color: #f7f7f7 !important;
+}

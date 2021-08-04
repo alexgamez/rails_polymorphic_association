@@ -1,0 +1,17 @@
+<div class="container">
+  <h4>Notes</h4>
+  <% if parent_record.notes.size.positive? %>
+    <% parent_record.notes.each do |note| %>
+        <div>
+            <p><%= simple_format(note.content) %></p>
+        </div>
+        <div>
+            <p> <%= l note.created_at %></p>
+        </div>
+    <% end %>
+  <% end %>
+
+  <%= parent_form.fields_for :notes, parent_record.notes.build do |notes_form| %>
+    <%= notes_form.text_area :content %>
+  <% end %>
+</div>

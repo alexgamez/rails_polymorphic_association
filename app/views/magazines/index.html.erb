@@ -1,0 +1,36 @@
+<div class="container mt-3 mb-5">
+  <h2>Magazines</h2>
+
+  <%= render partial: 'shared/flash_alerts' %>
+  
+  <div class="table-responsive">
+    <table class="table align-middle">
+      <tr>
+          <th>#</th>
+          <th>Title</th>
+          <th>Target audiences</th>
+          <th>Description</th>
+          <th></th>
+          <th></th>
+      </tr>
+  
+      <% @magazines.each_with_index do |magazine, index| %>
+          <tr>
+              <td><%= index %></td>
+              <td><%= magazine.title %></td>
+              <td><%= magazine.target_audiences %></td>
+              <td><%= magazine.description %></td>
+              <td><%= link_to 'View', edit_magazine_path(magazine) %></td>
+              <td><%= link_to 'Destroy', magazine, method: :delete,
+                                          data: { confirm: 'Are you crazy ?' } %>
+              </td>
+
+          </tr>
+      <% end %>
+    </table>
+  </div>
+  <%= will_paginate @magazines %>
+  <br />
+  <%= link_to 'Add a magazine', new_magazine_path, class:'btn btn-primary' %>
+
+  </div>
